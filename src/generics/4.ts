@@ -1,10 +1,14 @@
-import axios from 'axios';
+type User = {
+  name: string;
+  surname: string;
+  email: string;
+  password: string;
+};
 
-async function fetchData<T>(url: string): Promise<T> {
-  try {
-    const response = await axios.get<T>(url);
-    return response.data;
-  } catch (error) {
-    throw new Error(`Error fetching from ${url}: ${error}`);
-  }
+function createOrUpdateUser(initialValues: Partial<User>) {
 }
+
+createOrUpdateUser({
+  email: "user@mail.com",
+  password: "password123",
+});

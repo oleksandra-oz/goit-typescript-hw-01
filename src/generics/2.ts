@@ -1,10 +1,18 @@
-import axios from 'axios';
+type AllType = {
+  name: string;
+  position: number;
+  color: string;
+  weight: number;
+};
 
-async function fetchData<T>(url: string): Promise<T> {
-  try {
-    const response = await axios.get<T>(url);
-    return response.data;
-  } catch (error) {
-    throw new Error(`Error fetching from ${url}: ${error}`);
-  }
+function compare<T extends AllType, U extends AllType>(
+  top: Pick<T, "name" | "color">,
+  bottom: Pick<U, "position" | "weight">
+): AllType {
+  return {
+    name: top.name,
+    color: top.color,
+    position: bottom.position,
+    weight: bottom.weight,
+  };
 }

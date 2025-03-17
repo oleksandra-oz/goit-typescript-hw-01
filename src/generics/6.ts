@@ -15,11 +15,3 @@ type Form = {
   
 type Params = Omit<Form, 'errors'>;
   
-const params: Params = {
-    email: 'user@example.com',
-    firstName: 'John',
-    lastName: 'Doe',
-    phone: '123456789',
-  };
-  
-  console.log(params);
